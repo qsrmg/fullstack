@@ -1,8 +1,7 @@
 import Image from "next/image";
 import SectionHeader from "@/components/ui/section-header";
-import { nearbySellers } from "@/lib/home-data";
 
-export default function NearbySellersSection() {
+export default function NearbySellersSection({ sellers = [] }) {
   return (
     <section className="bg-slate-50/70 py-14 dark:bg-slate-900/40">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -12,7 +11,7 @@ export default function NearbySellersSection() {
           description="Discover nearby verified shops with transparent SQL trust levels."
         />
         <div className="grid gap-6 md:grid-cols-3">
-          {nearbySellers.map((shop) => (
+          {sellers.map((shop) => (
             <article
               key={shop.name}
               className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft transition hover:-translate-y-1.5 hover:shadow-card dark:border-slate-800 dark:bg-slate-900"
@@ -35,6 +34,11 @@ export default function NearbySellersSection() {
             </article>
           ))}
         </div>
+        {sellers.length === 0 ? (
+          <p className="mt-6 text-center text-sm text-slate-500 dark:text-slate-300">
+            No nearby sellers found at the moment.
+          </p>
+        ) : null}
       </div>
     </section>
   );

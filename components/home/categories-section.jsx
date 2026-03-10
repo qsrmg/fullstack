@@ -1,8 +1,7 @@
 import { Sparkles } from "lucide-react";
 import SectionHeader from "@/components/ui/section-header";
-import { categories } from "@/lib/home-data";
 
-export default function CategoriesSection() {
+export default function CategoriesSection({ categories = [] }) {
   return (
     <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
       <SectionHeader
@@ -38,6 +37,11 @@ export default function CategoriesSection() {
           );
         })}
       </div>
+      {categories.length === 0 ? (
+        <p className="mt-6 text-center text-sm text-slate-500 dark:text-slate-300">
+          No categories available right now.
+        </p>
+      ) : null}
     </section>
   );
 }

@@ -1,16 +1,26 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import SectionHeader from "@/components/ui/section-header";
-import { productGroups } from "@/lib/home-data";
 
-export default function PopularProductsSection() {
-  const [activeGroup, setActiveGroup] = useState(productGroups[0].title);
+export default function PopularProductsSection({ productGroups = [] }) {
+  const [activeGroup, setActiveGroup] = useState(productGroups[0]?.title ?? "");
+
+  useEffect(() => {
+    if (!productGroups.length) {
+      setActiveGroup("");
+      return;
+    }
+
+    if (!productGroups.some((group) => group.title === activeGroup)) {
+      setActiveGroup(productGroups[0].title);
+    }
+  }, [productGroups, activeGroup]);
 
   const products = useMemo(
     () => productGroups.find((group) => group.title === activeGroup)?.items ?? [],
-    [activeGroup]
+    [activeGroup, productGroups]
   );
 
   return (
@@ -60,6 +70,11 @@ export default function PopularProductsSection() {
           </article>
         ))}
       </div>
+      {productGroups.length === 0 ? (
+        <p className="mt-6 text-center text-sm text-slate-500 dark:text-slate-300">
+          No product groups available right now.
+        </p>
+      ) : null}
     </section>
   );
 }
