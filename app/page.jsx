@@ -6,7 +6,6 @@ import PopularProductsSection from "@/components/home/popular-products-section";
 import FranchiseSection from "@/components/home/franchise-section";
 import DepartmentsSection from "@/components/home/departments-section";
 import RoadmapSection from "@/components/home/roadmap-section";
-import SqlLevelsSection from "@/components/home/sql-levels-section";
 import Footer from "@/components/home/footer";
 
 export default function HomePage() {
@@ -20,7 +19,6 @@ export default function HomePage() {
       <FranchiseSection />
       <DepartmentsSection />
       <RoadmapSection />
-      <SqlLevelsSection />
       <Footer />
     </main>
   );
