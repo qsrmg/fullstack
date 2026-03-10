@@ -4,8 +4,11 @@ import { useEffect, useState } from "react";
 import { Search } from "lucide-react";
 import { heroSlides, sqlLevels } from "@/lib/home-data";
 
+const searchTypes = ["Products", "Services", "Companies", "Jobs"];
+
 export default function HeroSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [activeSearchType, setActiveSearchType] = useState(searchTypes[0]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -31,24 +34,44 @@ export default function HeroSection() {
               {heroSlides[currentSlide].subtitle}
             </p>
 
-            <div className="mt-8 grid gap-3 sm:grid-cols-[1fr_auto]">
-              <label className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3.5 shadow-soft transition focus-within:border-cyan-400 focus-within:shadow-card dark:border-slate-700 dark:bg-slate-950">
-                <Search className="h-5 w-5 text-cyan-500" />
-                <input
-                  type="text"
-                  placeholder="Search Products, Services, Companies, Jobs"
-                  className="w-full bg-transparent text-sm text-slate-700 outline-none placeholder:text-slate-400 dark:text-slate-200 dark:placeholder:text-slate-500"
-                />
-              </label>
-              <select
-                className="rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-medium text-slate-700 shadow-soft outline-none transition hover:-translate-y-0.5 hover:shadow-card dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
-                aria-label="SQL level filter"
-                defaultValue="Free"
-              >
-                {sqlLevels.map((level) => (
-                  <option key={level}>{level}</option>
+            <div className="mt-8 space-y-3">
+              <div className="flex flex-wrap gap-2">
+                {searchTypes.map((type) => (
+                  <button
+                    key={type}
+                    onClick={() => setActiveSearchType(type)}
+                    className={`rounded-full px-3 py-1.5 text-xs font-semibold transition ${
+                      activeSearchType === type
+                        ? "bg-slate-900 text-white shadow-soft dark:bg-cyan-500"
+                        : "border border-slate-200 bg-white text-slate-600 hover:-translate-y-0.5 hover:shadow-soft dark:border-slate-700 dark:bg-slate-900 dark:text-slate-300"
+                    }`}
+                  >
+                    {type}
+                  </button>
                 ))}
-              </select>
+              </div>
+              <div className="grid gap-3 sm:grid-cols-[1fr_auto]">
+                <label className="flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3.5 shadow-soft transition focus-within:border-cyan-400 focus-within:shadow-card dark:border-slate-700 dark:bg-slate-950">
+                  <Search className="h-5 w-5 text-cyan-500" />
+                  <input
+                    type="text"
+                    placeholder={`Search ${activeSearchType}`}
+                    className="w-full bg-transparent text-sm text-slate-700 outline-none placeholder:text-slate-400 dark:text-slate-200 dark:placeholder:text-slate-500"
+                  />
+                  <span className="hidden rounded-full bg-cyan-100 px-2 py-1 text-[10px] font-semibold uppercase text-cyan-700 sm:inline-block dark:bg-cyan-500/20 dark:text-cyan-300">
+                    AI
+                  </span>
+                </label>
+                <select
+                  className="rounded-2xl border border-slate-200 bg-white px-4 py-3.5 text-sm font-medium text-slate-700 shadow-soft outline-none transition hover:-translate-y-0.5 hover:shadow-card dark:border-slate-700 dark:bg-slate-950 dark:text-slate-200"
+                  aria-label="SQL level filter"
+                  defaultValue="Free"
+                >
+                  {sqlLevels.map((level) => (
+                    <option key={level}>{level}</option>
+                  ))}
+                </select>
+              </div>
             </div>
           </div>
 
