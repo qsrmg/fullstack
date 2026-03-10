@@ -15,7 +15,7 @@ import {
 
 export default function HomePage() {
   return (
-    <main className="bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
+    <main className="relative overflow-hidden bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
       <Header />
       <HeroSection />
       <CategoriesSection categories={dummyCategories} />

@@ -3,19 +3,19 @@ import { departments } from "@/lib/home-data";
 
 export default function DepartmentsSection() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+    <section className="section-shell section-space">
       <SectionHeader
         eyebrow="EHB Departments"
         title="Specialized Systems for Trust, Skills, and Operations"
         description="Each department is designed to strengthen marketplace security, capability, and efficiency."
       />
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {departments.map((department) => (
           <article
             key={department.code}
-            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-soft transition hover:-translate-y-1.5 hover:shadow-card dark:border-slate-800 dark:bg-slate-900"
+            className="surface-card surface-card-hover group p-6 md:p-7"
           >
-            <div className="inline-flex rounded-xl bg-cyan-100 px-3 py-2 text-lg font-bold text-cyan-700 dark:bg-cyan-400/15 dark:text-cyan-300">
+            <div className="inline-flex rounded-xl bg-cyan-100 px-3 py-2 text-lg font-bold text-cyan-700 transition group-hover:scale-105 dark:bg-cyan-400/15 dark:text-cyan-300">
               {department.code}
             </div>
             <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-white">{department.title}</h3>

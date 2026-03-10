@@ -3,7 +3,7 @@ import SectionHeader from "@/components/ui/section-header";
 
 export default function CategoriesSection({ categories = [] }) {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
+    <section className="section-shell section-space">
       <SectionHeader
         eyebrow="Main Service Categories"
         title="One Marketplace. Infinite Service Possibilities."
@@ -15,11 +15,11 @@ export default function CategoriesSection({ categories = [] }) {
           return (
             <article
               key={category.title}
-              className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-5 shadow-soft transition duration-300 hover:-translate-y-2 hover:shadow-card dark:border-slate-800 dark:bg-slate-900"
+              className="surface-card surface-card-hover group relative overflow-hidden p-6 md:p-7"
             >
-              <div className="absolute -right-6 -top-6 h-20 w-20 rounded-full bg-cyan-100 blur-2xl transition group-hover:bg-cyan-200 dark:bg-cyan-900/30 dark:group-hover:bg-cyan-800/40" />
+              <div className="absolute -right-8 -top-8 h-24 w-24 rounded-full bg-cyan-100 blur-2xl transition group-hover:bg-cyan-200 dark:bg-cyan-900/30 dark:group-hover:bg-cyan-800/40" />
               <div className="relative">
-                <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
+                <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-slate-200 bg-slate-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-wider text-slate-600 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300">
                   <Sparkles className="h-3.5 w-3.5 text-cyan-500" />
                   {category.tag}
                 </p>
@@ -28,7 +28,7 @@ export default function CategoriesSection({ categories = [] }) {
                     Coming Soon
                   </span>
                 ) : null}
-                <h3 className="text-lg font-bold text-slate-900 dark:text-white">{category.title}</h3>
+                <h3 className="text-lg font-bold leading-snug text-slate-900 dark:text-white">{category.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">
                   {category.description}
                 </p>

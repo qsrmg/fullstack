@@ -3,31 +3,37 @@ import SectionHeader from "@/components/ui/section-header";
 
 export default function NearbySellersSection({ sellers = [] }) {
   return (
-    <section className="bg-slate-50/70 py-14 dark:bg-slate-900/40">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-slate-50/70 dark:bg-slate-900/40">
+      <div className="section-shell section-space">
         <SectionHeader
           eyebrow="Nearby Sellers"
           title="Trusted Local Stores Around You"
           description="Discover nearby verified shops with transparent SQL trust levels."
         />
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
           {sellers.map((shop) => (
             <article
               key={shop.name}
-              className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft transition hover:-translate-y-1.5 hover:shadow-card dark:border-slate-800 dark:bg-slate-900"
+              className="surface-card surface-card-hover group overflow-hidden"
             >
-              <div className="relative h-44">
-                <Image src={shop.image} alt={shop.name} fill className="object-cover" sizes="(max-width: 768px) 100vw, 33vw" />
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src={shop.image}
+                  alt={shop.name}
+                  fill
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                />
               </div>
-              <div className="space-y-3 p-5">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{shop.name}</h3>
+              <div className="space-y-3 p-5 md:p-6">
+                <h3 className="text-lg font-semibold leading-snug text-slate-900 dark:text-white">{shop.name}</h3>
                 <div className="flex items-center justify-between text-sm">
                   <span className="rounded-full bg-cyan-100 px-3 py-1 font-semibold text-cyan-700 dark:bg-cyan-400/15 dark:text-cyan-300">
                     SQL {shop.sql}
                   </span>
                   <span className="text-slate-500 dark:text-slate-300">{shop.distance}</span>
                 </div>
-                <button className="w-full rounded-xl border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-100 dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-800">
+                <button className="w-full rounded-xl border border-slate-200 px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:-translate-y-0.5 hover:bg-slate-100 hover:shadow-soft dark:border-slate-700 dark:text-slate-100 dark:hover:bg-slate-800">
                   Visit Shop
                 </button>
               </div>
