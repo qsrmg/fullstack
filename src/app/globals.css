@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100;
+}
+
+.section-container {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.glass-card {
+  @apply rounded-2xl border border-slate-200/70 bg-white/90 shadow-xl shadow-slate-300/30 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl dark:border-slate-700/70 dark:bg-slate-900/80 dark:shadow-slate-900/60;
+}
+
+.card-3d {
+  @apply rounded-3xl border border-slate-200/70 bg-white/90 shadow-[0_18px_40px_-14px_rgba(15,23,42,0.25)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_26px_60px_-20px_rgba(14,116,255,0.35)] dark:border-slate-700/70 dark:bg-slate-900/75 dark:shadow-[0_18px_40px_-14px_rgba(0,0,0,0.5)] dark:hover:shadow-[0_26px_60px_-20px_rgba(6,182,212,0.35)];
+}
+
+.heading-gradient {
+  @apply bg-gradient-to-r from-cyan-500 via-blue-500 to-violet-500 bg-clip-text text-transparent;
+}
