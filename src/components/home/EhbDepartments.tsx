@@ -16,7 +16,7 @@ export function EhbDepartments() {
               {department.code}
             </p>
             <h3 className="mt-4 text-xl font-semibold text-slate-900 dark:text-white">
-              {department.name}
+              {department.title}
             </h3>
             <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{department.description}</p>
           </article>

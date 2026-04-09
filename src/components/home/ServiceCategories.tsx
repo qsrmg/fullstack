@@ -1,4 +1,4 @@
-import { mainServiceCategories } from "./data";
+import { serviceCategories } from "./data";
 import { SectionTitle } from "./SectionTitle";
 
 export function ServiceCategories() {
@@ -10,7 +10,7 @@ export function ServiceCategories() {
         description="Discover e-commerce, AI, services, and community tools through a unified global platform."
       />
       <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {mainServiceCategories.map((item) => (
+        {serviceCategories.map((item) => (
           <article
             key={item.title}
             className="card-3d relative overflow-hidden rounded-3xl border border-black/5 bg-white p-6 dark:border-white/10 dark:bg-slate-900"
